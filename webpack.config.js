@@ -4,11 +4,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var gitCommitHash = require('git-rev-sync');
 
 function generateBuildFileName(extension) {
-    var hash = gitCommitHash.short(); // use "short" 7 character hash
+    var hash = gitCommitHash.short(); // use "short" 7-character hash
     var minified = process.argv.indexOf('-p') !== -1 ||
                    process.argv.indexOf('--optimize-minimize') !== -1;
     return [
-        'build',
+        'govis',
         hash,
         'min',
         extension,
@@ -76,9 +76,10 @@ module.exports = {
         // extract all css into a single output file.
         new ExtractTextPlugin(generateBuildFileName('css')),
         // Generate an index.html file containing references to the newly created
-        //  js build file - build/build.COMMIT_HASH.min.js
-        // css build file - build/build.COMMIT_HASH.min.css
+        //  js build file - build/govis.COMMIT_HASH.min.js
+        // css build file - build/govis.COMMIT_HASH.min.css
         new HtmlWebpackPlugin({
+            title: 'GoVis',
             template: __dirname + '/src/index.html',
             inject: 'body', // inject js file reference into body element
         }),

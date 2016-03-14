@@ -1,11 +1,11 @@
 {
-  "name": "react-redux-template",
-  "description": "A simple React+Redux app",
+  "name": "govis",
+  "description": "A tool for reading Go games alongside their analyses",
   "version": "0.0.1",
   "author": "Evan Purcer <evanpurcer@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/evnp/react-redux-template"
+    "url": "https://github.com/evnp/govis"
   },
   "dependencies": {
     "babel-polyfill": "^6.7.2",

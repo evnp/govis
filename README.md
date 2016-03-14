@@ -1,3 +1,3 @@
-React+Redux Template
-===================
-A simple React+Redux app
+GoVis
+=====
+A tool for reading Go games alongside their analyses.

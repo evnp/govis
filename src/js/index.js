@@ -5,7 +5,7 @@ import * as ReactRedux from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-import { initial_state as state, reducer } from './reducers';
+import { reducer } from './reducers';
 import * as actions from './actions';
 
 import Root from './components/root';

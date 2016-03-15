@@ -2,7 +2,7 @@ import React from 'react';
 
 import PureRenderComponent from './pure_render';
 
-import '../../styles/components/rocket.styl';
+import '../../style/components/rocket.styl';
 
 export default class Rocket extends PureRenderComponent {
     render = () =>

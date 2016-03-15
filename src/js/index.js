@@ -10,6 +10,8 @@ import * as actions from './actions';
 
 import Root from './components/root';
 
+import '../style/index.styl';
+
 let logger = createLogger();
 let store = Redux.applyMiddleware(thunkMiddleware, logger)(Redux.createStore)(reducer);
 
@@ -20,11 +22,12 @@ let connectDispatch = dispatch => ({
     },
 });
 
-let ConnectedRoot = ReactRedux.connect(connectState, connectDispatch)(Root);
-
 let Provider = ReactRedux.Provider;
+let ConnectedRoot = ReactRedux.connect(connectState, connectDispatch)(Root);
 let provider = <Provider store={store}><ConnectedRoot/></Provider>;
+
 let container = document.createElement('div');
+container.className = 'react-container';
 document.body.appendChild(container);
 
 ReactDOM.render(provider, container);

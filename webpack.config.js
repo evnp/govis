@@ -30,10 +30,10 @@ module.exports = {
     },
     module: {
         loaders: [
-            { // JavaScript loader - bundle .js import hierarchy (starting at index.js) into a single .js file
+            { // JavaScript Loader - bundle .js import hierarchy (starting at index.js) into a single .js file
                 test: /\.js$/,
                 include: __dirname + '/src/js',
-                loader: 'babel-loader',
+                loader: 'babel',
                 query: {
                     plugins: [
                         'transform-runtime',
@@ -47,20 +47,27 @@ module.exports = {
                     ],
                 }
             },
-            { // Style loader - bundle .styl imports in .js files into a single .css file
+            { // Style Loader - bundle .styl imports in .js files into a single .css file
                 test: /\.styl$/,
-                include: __dirname + '/src/styles',
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader'),
+                include: __dirname + '/src/style',
+                loader: process.env.NODE_ENV === 'production' ? // only use the ExtractTextPlugin in production
+                    ExtractTextPlugin.extract('style', 'css!stylus') :
+                    'style!css!stylus',
             },
-            { // Image loader - resolve "url(...)" statements in .css files to images
+            { // Image Loader - resolve "url(...)" statements in .css files to images
                 test: /\.(png|jpg|svg)$/,
                 include: __dirname + '/src/images',
                 loader: 'url?limit=25000',
             },
-            { // JSON loader - resolve .json imports in .js files to JavaScript objects
+            { // JSON Loader - resolve .json imports in .js files to JavaScript objects
                 test: /\.json$/,
                 include: __dirname + '/src/json',
-                loader: 'json-loader',
+                loader: 'json',
+            },
+            { // React Hot Loader - bundle .js import hierarchy (starting at index.js) into a single .js file
+                test: /\.(js|styl)$/,
+                include: __dirname + '/src/*/components/',
+                loader: 'react-hot',
             },
         ],
     },

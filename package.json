@@ -39,15 +39,19 @@
     "html-webpack-plugin": "^2.10.0",
     "json-loader": "^0.5.4",
     "poststylus": "^0.2.3",
+    "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.0",
     "stylus": "^0.54.2",
     "stylus-loader": "^1.5.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.14"
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "build":     "./node_modules/.bin/webpack --optimize-minimize",
-    "build-dev": "./node_modules/.bin/webpack --debug --devtool sourcemap --output-pathinfo",
-    "watch":     "./node_modules/.bin/webpack --debug --devtool sourcemap --output-pathinfo --watch"
+    "start": "node_modules/.bin/webpack-dev-server --hot --inline",
+    "build": "npm run build-dev",
+    "build-prod": "NODE_ENV=production ./node_modules/.bin/webpack --optimize-minimize",
+    "build-dev": "NODE_ENV=development ./node_modules/.bin/webpack --debug --devtool sourcemap --output-pathinfo",
+    "watch": "NODE_ENV=development ./node_modules/.bin/webpack --debug --devtool sourcemap --output-pathinfo --watch"
   }
 }

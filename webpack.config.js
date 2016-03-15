@@ -64,7 +64,7 @@ module.exports = {
                 include: __dirname + '/src/json',
                 loader: 'json',
             },
-            { // React Hot Loader - bundle .js import hierarchy (starting at index.js) into a single .js file
+            { // React Hot Loader - automatically refresh page and reload assets on component .js and .styl changes
                 test: /\.(js|styl)$/,
                 include: __dirname + '/src/*/components/',
                 loader: 'react-hot',

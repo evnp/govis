@@ -86,7 +86,6 @@ module.exports = {
         //  js build file - build/govis.COMMIT_HASH.min.js
         // css build file - build/govis.COMMIT_HASH.min.css
         new HtmlWebpackPlugin({
-            title: 'GoVis',
             template: __dirname + '/src/index.html',
             inject: 'body', // inject js file reference into body element
         }),

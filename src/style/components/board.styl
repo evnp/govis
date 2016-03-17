@@ -1,2 +1,93 @@
 .board-component
-    color: black
+    width: 80%
+    padding: 40%
+    box-sizing: border-box
+    background: url(../../images/wood2.jpg)
+    background-size: cover
+    box-shadow: 0px 4px 24px -4px rgba(0,0,0,0.4)
+
+    // center
+    position: absolute
+    top: 50%
+    left: 50%
+    -webkit-transform: translate(-50%, -50%)
+
+    .grid
+        width: 80%
+        height: 80%
+        position: absolute
+        top: 10%
+        left: 10%
+
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+        font-weight: 400
+        color: rgba(0,0,0,0.6)
+
+        .line
+            position: absolute
+
+            .inner
+                height: 100%
+                -webkit-transition: border-color 0.1s, border-width 0.1s
+
+            .label
+                cursor: default
+                width: 18px
+                height: 18px
+                position: absolute
+                text-align: center
+                font-size: 14px
+                text-shadow: -0.5px 0.5px 0 rgba(255,255,255,0.4)
+                -webkit-transition: color 0.1s, text-shadow 0.1s
+
+            &.horizontal
+                width: 100%
+                height: 0
+                left: 0
+                padding-left: 1px
+
+                .inner
+                    margin-top: -1px
+                    border-top: 1px solid rgba(0,0,0,0.4)
+                    border-bottom: 1px solid rgba(255,255,255,0.2)
+
+                .label
+                    top: 50%
+                    left: -8.3%
+                    text-align: right
+                    -webkit-transform: translateY(-50%)
+
+            &.vertical
+                width: 0
+                height: 100%
+                top: 0
+                padding-bottom: 1px
+
+                .inner
+                    margin-left: -1px
+                    margin-top: -1px
+                    border-right: 1px solid rgba(0,0,0,0.4)
+                    border-left: 1px solid rgba(255,255,255,0.2)
+
+                .label
+                    top: -7.7%
+                    left: 50%
+                    text-indent: 3px
+                    -webkit-transform: translateX(-50%)
+
+            &:hover
+                z-index: -1 // allows hovering both horizontal and vertical line elements
+
+            &.highlighted
+                &.horizontal .inner
+                    border-top: 1px solid rgba(255,255,255,0.5)
+                    border-bottom: 1px solid rgba(255,255,255,0.5)
+
+                &.vertical .inner
+                    border-left: 1px solid rgba(255,255,255,0.5)
+                    border-right: 1px solid rgba(255,255,255,0.5)
+
+                .label
+                    color: white
+                    text-shadow: -0.5px 0.5px 0 black
+

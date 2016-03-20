@@ -61,13 +61,18 @@ module.exports = {
             },
             { // JSON Loader - resolve .json imports in .js files to JavaScript objects
                 test: /\.json$/,
-                include: __dirname + '/src/json',
+                include: __dirname + '/src/data',
                 loader: 'json',
             },
             { // React Hot Loader - automatically refresh page and reload assets on component .js and .styl changes
                 test: /\.(js|styl)$/,
                 include: __dirname + '/src/*/components/',
                 loader: 'react-hot',
+            },
+            { // SGF Loader - load Go game files into JSON objects
+                test: /\.sgf$/,
+                include: __dirname + '/src/data',
+                loader: 'sgf',
             },
         ],
     },

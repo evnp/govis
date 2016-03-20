@@ -5,6 +5,8 @@ import PureRenderComponent from './pure_render';
 
 import '../../style/components/board.styl';
 
+import game from '../../data/deep_mind_challenge_game_1.sgf';
+
 export default class Board extends PureRenderComponent {
     render = () =>
         <div className="board-component" onMouseOver={this.highlight}>

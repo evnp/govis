@@ -40,6 +40,7 @@
     "json-loader": "^0.5.4",
     "poststylus": "^0.2.3",
     "react-hot-loader": "^1.3.0",
+    "sgf-loader": "^1.0.0",
     "style-loader": "^0.13.0",
     "stylus": "^0.54.2",
     "stylus-loader": "^1.5.1",
